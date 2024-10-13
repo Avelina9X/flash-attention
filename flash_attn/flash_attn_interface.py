@@ -53,7 +53,7 @@ def round_multiple(x, m):
 # torch.compile() support is only enabled for pytorch >= 2.4
 # The reason for this is that we are using the new custom_op and register_fake
 # APIs, which support inplace modification of inputs in the function itself
-if torch.__version__ >= "2.4.0":
+if torch.__version__[ : 5 ] >= "2.4.0":
     _torch_custom_op_wrapper = torch.library.custom_op
     _torch_register_fake_wrapper = torch.library.register_fake
 else:
